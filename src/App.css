@@ -1,38 +1,47 @@
-.App {
-  text-align: center;
+.hero-section {
+    position: relative;
+    min-height: 96vh;
+    z-index: 0;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.hero-section > * {
+    position: relative;
+    z-index: 2;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.hero-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
+    height: 100%;
+    background: #ffce3e;
+    border-radius: 0 0 700px 700px;
+    z-index: 1;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+/* Mobile screens - make hero section longer */
+@media (max-width: 768px) {
+    .hero-section {
+        min-height: 80vh; /* Increase minimum height on mobile */
+        padding: 3rem 0; /* Add more padding */
+    }
 }
 
-.App-link {
-  color: #61dafb;
+/* Small mobile screens - even longer */
+@media (max-width: 480px) {
+    .hero-section {
+        min-height: 90vh; /* Even longer on very small screens */
+        padding: 4rem 0; /* More padding */
+    }
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+/* Tablet screens */
+@media (min-width: 769px) and (max-width: 1024px) {
+    .hero-section {
+        min-height: 70vh; /* Slightly longer on tablets */
+        padding: 2.5rem 0;
+    }
 }
