@@ -1,1 +1,1 @@
-# TimeKap is wonderful
+# TimeKap is Wonderful
