@@ -33,7 +33,7 @@ function App() {
               <a href="#features" className="text-[#3a3a3a] hover:text-[#0050c6] px-3 py-2 text-lg font-medium transition-colors duration-200">
                 Features
               </a>
-              <a href="#join" className="bg-[#f8482e] text-[#fdf8f3] hover:bg-[#0050c6] px-6 py-2 rounded-full text-lg font-medium transition-colors duration-200">
+              <a href="https://tally.so/r/m6BZek" className="bg-[#f8482e] text-[#fdf8f3] hover:bg-[#0050c6] px-6 py-2 rounded-full text-lg font-medium transition-colors duration-200">
                 Join
               </a>
             </nav>
@@ -135,6 +135,7 @@ function App() {
             <button 
               type="button" 
               className="bg-[#f8482e] text-[#fdf8f3] hover:bg-[#f8482e] px-12 py-5 rounded-full text-4xl font-semibold transition-colors duration-200 shadow-lg hover:shadow-xl transform hover:-translate-y-1"
+              onClick={() => window.location.href = 'https://tally.so/r/m6BZek'}
             >
               Join Waitlist
             </button>
@@ -191,7 +192,8 @@ function App() {
                 <h2 className="text-4xl font-bold text-white mb-24">Interested?</h2>
                 <button 
                   type="button" 
-                  className="bg-[#f8482e] text-[#fdf8f3] hover:bg-[#0050c6] px-12 py-5 mb-16 rounded-full text-4xl font-semibold transition-colors duration-200 shadow-lg hover:shadow-xl transform hover:-translate-y-1"
+                  className="bg-[#f8482e] text-[#fdf8f3] hover:bg-[#f8482e] px-12 py-5 mb-16 rounded-full text-4xl font-semibold transition-colors duration-200 shadow-lg hover:shadow-xl transform hover:-translate-y-1"
+                  onClick={() => window.location.href = 'https://tally.so/r/m6BZek'}
                 >
                   Join Waitlist
                 </button>
