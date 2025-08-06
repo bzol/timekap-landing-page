@@ -26,7 +26,7 @@
 @media (max-width: 768px) {
     .hero-section {
         min-height: 80vh; /* Increase minimum height on mobile */
-        padding: 3rem 0; /* Add more padding */
+        padding: 0 0 3rem 0; /* Add more padding at bottom */
     }
 }
 
@@ -34,7 +34,7 @@
 @media (max-width: 480px) {
     .hero-section {
         min-height: 90vh; /* Even longer on very small screens */
-        padding: 4rem 0; /* More padding */
+        padding: 0 0 4rem 0; /* More padding */
     }
 }
 
@@ -42,6 +42,6 @@
 @media (min-width: 769px) and (max-width: 1024px) {
     .hero-section {
         min-height: 70vh; /* Slightly longer on tablets */
-        padding: 2.5rem 0;
+        padding: 0 0 2.5rem 0;
     }
 }
