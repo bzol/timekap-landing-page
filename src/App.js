@@ -186,7 +186,7 @@ function App() {
         </div>
 
         {/* Features section */}
-        <div className="bg-[#fdf8f3] pb-4 pt-40" id="features">
+        <div className="bg-[#fdf8f3] pb-4 pt-24 md:pt-40" id="features">
           <div className="max-w-[90rem] mx-auto px-4 sm:px-6 lg:px-8">
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 xl:grid-cols-4">
               {[
