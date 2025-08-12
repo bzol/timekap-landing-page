@@ -107,7 +107,7 @@
 }
 
 .hero-image-continuous-float {
-    animation: floatDown 1.2s ease-out forwards, subtleFloat 3s ease-in-out infinite 1.2s;
+    animation: floatDown 0.8s ease-out forwards, subtleFloat 3s ease-in-out infinite 0.8s;
     opacity: 1 !important; /* Override the inline opacity once animation starts */
 }
 
