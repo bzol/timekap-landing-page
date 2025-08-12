@@ -1,5 +1,4 @@
 import { useState, useEffect, useRef } from 'react';
-import logo from './logo.svg';
 import './App.css';
 
 function App() {
@@ -27,12 +26,13 @@ function App() {
       }
     );
 
-    featureRefs.current.forEach((ref) => {
+    const currentRefs = featureRefs.current;
+    currentRefs.forEach((ref) => {
       if (ref) observer.observe(ref);
     });
 
     return () => {
-      featureRefs.current.forEach((ref) => {
+      currentRefs.forEach((ref) => {
         if (ref) observer.unobserve(ref);
       });
     };
@@ -153,7 +153,7 @@ function App() {
               </div>
               <div className="flex justify-center lg:justify-end">
                 <img
-                  alt="TimeKap hero image"
+                  alt="TimeKap hero"
                   src="/hero-image.png"
                   className="max-w-full h-auto rounded-lg pt-4 hero-image-continuous-float"
                 />
