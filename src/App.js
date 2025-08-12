@@ -41,6 +41,15 @@ function App() {
 
   return (
     <div className="App">
+      {/* Full Page Loading Spinner */}
+      {!heroImageLoaded || true && (
+        <div className="loading-overlay">
+          <div className="loading-spinner">
+            <div className="spinner"></div>
+            <p className="loading-text">Loading TimeKap...</p>
+          </div>
+        </div>
+      )}
       {/* Responsive Navbar */}
       <header className="bg-[#ffce3e] w-full top-0 z-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 bg-[#ffce3e]">
@@ -156,9 +165,8 @@ function App() {
                 <img
                   alt="TimeKap hero"
                   src="/hero-image.png"
-                  className={`max-w-full h-auto rounded-lg pt-4 ${heroImageLoaded ? 'hero-image-continuous-float' : 'hero-image-loading'}`}
+                  className="max-w-full h-auto rounded-lg pt-4 hero-image-continuous-float"
                   onLoad={() => setHeroImageLoaded(true)}
-                  style={{ opacity: heroImageLoaded ? 1 : 0 }}
                 />
               </div>
             </div>
