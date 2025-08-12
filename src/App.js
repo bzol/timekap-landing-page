@@ -117,7 +117,7 @@ function App() {
                   life gets busy.
                 </p>
                 <p className="text-lg text-gray-600 mt-4 leading-relaxed">
-                  Build your own memory capsule together: share random moments,
+                  Build your own memory kapsule together: share random moments,
                   send surprise notes, do fun challenges, and keep the things that
                   matter.
                 </p>
@@ -143,7 +143,7 @@ function App() {
         </div>
 
         {/* Features section */}
-        <div className="bg-[#fdf8f3] pb-4 pt-16" id="features">
+        <div className="bg-[#fdf8f3] pb-4 pt-40" id="features">
           <div className="max-w-[90rem] mx-auto px-4 sm:px-6 lg:px-8">
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 xl:grid-cols-4">
               <div className="text-center">
@@ -156,7 +156,7 @@ function App() {
               <div className="text-center">
                 <img
                   src="/features/2.png"
-                  alt="Capture the Moments"
+                  alt="Kapture the Moments"
                   className="mx-auto h-100 xl:h-92 w-auto mb-6 p-4"
                 />
               </div>
@@ -284,7 +284,7 @@ function App() {
                   </a> */}
                   {/* Email */}
                   <a 
-                    href="emma.timekap@gmail.com" 
+                    href="mailto:emma.timekap@gmail.com" 
                     className="text-gray-300 hover:text-[#ffce3e] transition-colors duration-200"
                     aria-label="Email"
                   >
