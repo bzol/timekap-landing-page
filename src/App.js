@@ -42,7 +42,7 @@ function App() {
   return (
     <div className="App">
       {/* Full Page Loading Spinner */}
-      {!heroImageLoaded || true && (
+      {!heroImageLoaded && (
         <div className="loading-overlay">
           <div className="loading-spinner">
             <div className="spinner"></div>
