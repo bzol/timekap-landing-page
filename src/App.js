@@ -4,6 +4,7 @@ import './App.css';
 function App() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [animatedFeatures, setAnimatedFeatures] = useState(new Set());
+  const [heroImageLoaded, setHeroImageLoaded] = useState(false);
   const featureRefs = useRef([]);
 
   const toggleMenu = () => {
@@ -155,7 +156,9 @@ function App() {
                 <img
                   alt="TimeKap hero"
                   src="/hero-image.png"
-                  className="max-w-full h-auto rounded-lg pt-4 hero-image-continuous-float"
+                  className={`max-w-full h-auto rounded-lg pt-4 ${heroImageLoaded ? 'hero-image-continuous-float' : 'hero-image-loading'}`}
+                  onLoad={() => setHeroImageLoaded(true)}
+                  style={{ opacity: heroImageLoaded ? 1 : 0 }}
                 />
               </div>
             </div>

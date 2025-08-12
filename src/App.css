@@ -40,6 +40,13 @@
     animation: floatDown 1.2s ease-out forwards;
 }
 
+/* Loading state - hide image until loaded */
+.hero-image-loading {
+    opacity: 0;
+    transform: translateY(-100px);
+    transition: none;
+}
+
 /* Optional: Add a subtle continuous floating effect after the initial animation */
 @keyframes subtleFloat {
     0%, 100% {
@@ -52,6 +59,7 @@
 
 .hero-image-continuous-float {
     animation: floatDown 1.2s ease-out forwards, subtleFloat 3s ease-in-out infinite 1.2s;
+    opacity: 1 !important; /* Override the inline opacity once animation starts */
 }
 
 /* Feature images scroll animations */
