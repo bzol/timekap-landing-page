@@ -45,8 +45,11 @@ function App() {
       {!heroImageLoaded && (
         <div className="loading-overlay">
           <div className="loading-spinner">
-            <div className="spinner"></div>
-            <p className="loading-text">Loading TimeKap...</p>
+            <img 
+              src="/1-2-200h.png" 
+              alt="TimeKap Logo" 
+              className="loading-logo"
+            />
           </div>
         </div>
       )}
