@@ -1,0 +1,30 @@
+name: Custom Domain Setup
+
+on:
+  push:
+    branches:
+      - master  # or main, depending on your default branch
+  workflow_dispatch:  # allows manual triggering
+
+jobs:
+  setup-domain:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      
+      - name: Setup Custom Domain
+        run: |
+          echo "timekap.app" > CNAME
+          
+      - name: Commit CNAME if changed
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          git add CNAME
+          git diff --quiet && git diff --staged --quiet || git commit -m "Update CNAME record"
+          
+      - name: Push changes
+        uses: ad-m/github-push-action@master
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          branch: ${{ github.ref }}
