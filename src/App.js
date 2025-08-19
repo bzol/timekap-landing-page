@@ -244,12 +244,12 @@ function HomePage() {
                 </h2>
                 <p className="text-lg text-gray-600 mt-4 leading-relaxed">
                   TimeKap helps you stay close to the people you love, even when
-                  life gets busy. Our memory sharing app brings families and friends together through digital time capsules.
+                  life gets busy.
                 </p>
                 <p className="text-lg text-gray-600 mt-4 leading-relaxed">
-                  Build your own memory capsule together: share random moments,
-                  send surprise notes, do fun challenges, and preserve the memories that
-                  matter most. Experience the joy of connection through shared digital memories.
+                  Build your own memory kapsule together: share random moments,
+                  send surprise notes, do fun challenges, and keep the things that
+                  matter.
                 </p>
               </div>
               <div className="flex justify-center lg:justify-end">
