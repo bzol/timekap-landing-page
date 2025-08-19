@@ -67,8 +67,6 @@ function HomePage() {
   const [heroImageLoaded, setHeroImageLoaded] = useState(false);
   const featureRefs = useRef([]);
   const discordLink = 'https://discord.gg/3CgayCbu';
-  const navigate = useNavigate();
-  
   useEffect(() => {
     document.title = 'TimeKap - Kapture Life\'s Best Moments';
   }, []);
@@ -270,13 +268,20 @@ function HomePage() {
           {/* <div className="text-center pt-12 sm:pt-8 md:pt-8 py-8 sm:py-0 md:my-12"> */}
           <div className="text-center pt-12 pb-6 sm:pt-14 md:pt-16 lg:pt-16">
             <div className="flex flex-col wmdsm:flex-row gap-4 md:gap-6 justify-center items-center">
-              <button 
-                type="button" 
-                className="bg-[#f8482e] text-[#fdf8f3] hover:bg-[#0050c6] px-8 sm:px-12 md:px-10 lg:px-12 py-4 sm:py-5 md:py-6 lg:py-5 rounded-full text-2xl sm:text-3xl md:text-3xl lg:text-4xl font-semibold transition-colors duration-200 shadow-lg hover:shadow-xl transform hover:-translate-y-1"
-                onClick={() => window.location.href = 'https://tally.so/r/m6BZek'}
-              >
-                Join Waitlist
-              </button>
+                                <button 
+                    type="button" 
+                    className="bg-[#f8482e] text-[#fdf8f3] hover:bg-[#0050c6] px-8 sm:px-12 md:px-10 lg:px-12 py-4 sm:py-5 md:py-6 lg:py-5 rounded-full text-2xl sm:text-3xl md:text-3xl lg:text-4xl font-semibold transition-colors duration-200 shadow-lg hover:shadow-xl transform hover:-translate-y-1"
+                    onClick={() => window.location.href = 'https://tally.so/r/m6BZek'}
+                  >
+                    Join Waitlist
+                  </button>
+                  <button 
+                    type="button" 
+                    className="bg-[#0050c6] text-[#fdf8f3] hover:bg-[#4752C4] px-6 py-3 rounded-full text-lg font-medium transition-colors duration-200 shadow-lg hover:shadow-xl transform hover:-translate-y-1"
+                    onClick={() => shareOnSocial('twitter')}
+                  >
+                    Share on Twitter
+                  </button>
             </div>
           </div>
         </section>
