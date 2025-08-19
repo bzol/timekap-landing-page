@@ -2,11 +2,11 @@ import { useState, useEffect, useRef } from 'react';
 import './App.css';
 
 const privacyPolicy = `
-be private and secure
+Coming Soon
 `;
 
 const termsAndConditions = `
-be termsful
+Coming Soon
 `;
 
 function App() {
@@ -15,6 +15,8 @@ function App() {
   const [heroImageLoaded, setHeroImageLoaded] = useState(false);
   const featureRefs = useRef([]);
   const discordLink = 'https://discord.gg/3CgayCbu';
+
+  const [page, setPage] = useState(null);
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
@@ -49,12 +51,13 @@ function App() {
     };
   }, []);
 
-  if (window.location.pathname === '/privacy-policy') {
+  if (page === 'privacy-policy') {
     return (
       <div className="bg-[#0050c6] text-white min-h-screen">
         <div className="max-w-4xl mx-auto px-4 py-8">
           <button 
-            onClick={() => window.location.href = '/'}
+            onClick={() => setPage(null)}
+            type="button"
             className="mb-6 bg-white text-[#0050c6] hover:bg-gray-100 px-4 py-2 rounded-lg font-medium transition-colors duration-200 flex items-center gap-2"
           >
             ← Back to Home
@@ -66,12 +69,13 @@ function App() {
     );
   }
 
-  if (window.location.pathname === '/terms-and-conditions') {
+  if (page === 'terms-and-conditions') {
     return (
       <div className="bg-[#0050c6] text-white min-h-screen">
         <div className="max-w-4xl mx-auto px-4 py-8">
           <button 
-            onClick={() => window.location.href = '/'}
+            onClick={() => setPage(null)}
+            type="button"
             className="mb-6 bg-white text-[#0050c6] hover:bg-gray-100 px-4 py-2 rounded-lg font-medium transition-colors duration-200 flex items-center gap-2"
           >
             ← Back to Home
@@ -508,15 +512,17 @@ function App() {
                 </div>
                 <div className="flex flex-col sm:flex-row items-center space-y-2 sm:space-y-0 sm:space-x-4 text-sm text-gray-300">
                   <a 
-                    href="/privacy-policy" 
-                    className="hover:text-[#ffce3e] transition-colors duration-200"
+                    onClick={() => setPage('privacy-policy')}
+                    type="button"
+                    className="hover:text-[#ffce3e] transition-colors duration-200 cursor-pointer"
                   >
                     Privacy Policy
                   </a>
                   <span className="hidden sm:inline">•</span>
                   <a 
-                    href="/terms-and-conditions" 
-                    className="hover:text-[#ffce3e] transition-colors duration-200"
+                    onClick={() => setPage('terms-and-conditions')}
+                    type="button"
+                    className="hover:text-[#ffce3e] transition-colors duration-200 cursor-pointer"
                   >
                     Terms & Conditions
                   </a>
