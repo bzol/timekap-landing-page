@@ -111,7 +111,7 @@ function HomePage() {
         <div className="loading-overlay">
           <div className="loading-spinner">
             <img 
-              src="/1-2-200h.png" 
+              src="/logo-long.png" 
               alt="TimeKap Logo" 
               className="loading-logo"
             />
@@ -127,7 +127,7 @@ function HomePage() {
               <a href="/" className="flex items-center">
                 <img 
                   alt="TimeKap logo" 
-                  src="/1-2-200h.png" 
+                  src="/logo-long.png" 
                   className="h-16 w-auto sm:h-14" // Increased from h-8/h-10 to h-12/h-14
                 />
               </a>

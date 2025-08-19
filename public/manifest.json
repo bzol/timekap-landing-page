@@ -4,27 +4,27 @@
   "description": "TimeKap helps you stay close to loved ones by creating shared memory capsules. Share moments, send surprise notes, do fun challenges, and preserve life's best memories together.",
   "icons": [
     {
-      "src": "favicon.jpeg",
-      "sizes": "1024x1024",
-      "type": "image/jpeg",
-      "purpose": "any maskable"
+      "src": "favicon.png",
+      "sizes": "32x32",
+      "type": "image/png",
+      "purpose": "any"
     },
     {
-      "src": "logo192.png",
+      "src": "android-chrome-192x192.png",
       "type": "image/png",
       "sizes": "192x192",
       "purpose": "any maskable"
     },
     {
-      "src": "logo512.png",
+      "src": "android-chrome-512x512.png",
       "type": "image/png",
       "sizes": "512x512",
       "purpose": "any maskable"
     },
     {
-      "src": "favicon.png",
+      "src": "apple-touch-icon.png",
       "type": "image/png",
-      "sizes": "48x48",
+      "sizes": "180x180",
       "purpose": "any"
     }
   ],
@@ -39,8 +39,8 @@
   "categories": ["lifestyle", "social", "productivity"],
   "screenshots": [
     {
-      "src": "hero-image.png",
-      "sizes": "1200x800",
+      "src": "og-image.png",
+      "sizes": "1200x630",
       "type": "image/png",
       "platform": "wide",
       "label": "TimeKap app interface showing memory sharing features"
