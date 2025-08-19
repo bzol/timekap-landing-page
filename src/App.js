@@ -71,23 +71,6 @@ function HomePage() {
     document.title = 'TimeKap - Kapture Life\'s Best Moments';
   }, []);
 
-  // Social sharing functionality
-  const shareOnSocial = (platform) => {
-    const url = encodeURIComponent('https://timekap.app');
-    const text = encodeURIComponent('Check out TimeKap - Kapture Life\'s Best Moments! 📸✨');
-    
-    const socialUrls = {
-      twitter: `https://twitter.com/intent/tweet?url=${url}&text=${text}`,
-      facebook: `https://www.facebook.com/sharer/sharer.php?u=${url}`,
-      linkedin: `https://www.linkedin.com/sharing/share-offsite/?url=${url}`,
-      whatsapp: `https://wa.me/?text=${text}%20${url}`
-    };
-    
-    if (socialUrls[platform]) {
-      window.open(socialUrls[platform], '_blank', 'noopener,noreferrer');
-    }
-  };
-
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
   };
