@@ -20,6 +20,7 @@ function App() {
     setIsMenuOpen(!isMenuOpen);
   };
 
+
   useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => {
