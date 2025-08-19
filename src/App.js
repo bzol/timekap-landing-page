@@ -1,4 +1,5 @@
 import { useState, useEffect, useRef } from 'react';
+import { BrowserRouter as Router, Routes, Route, useNavigate, useLocation, Link } from 'react-router-dom';
 import './App.css';
 
 const privacyPolicy = `
@@ -9,14 +10,85 @@ const termsAndConditions = `
 Coming Soon
 `;
 
-function App() {
+// Privacy Policy Component
+function PrivacyPolicy() {
+  const navigate = useNavigate();
+  
+  useEffect(() => {
+    document.title = 'Privacy Policy - TimeKap';
+  }, []);
+
+  return (
+    <div className="bg-[#0050c6] text-white min-h-screen">
+      <div className="max-w-4xl mx-auto px-4 py-8">
+        <button 
+          onClick={() => navigate('/')}
+          type="button"
+          className="mb-6 bg-white text-[#0050c6] hover:bg-gray-100 px-4 py-2 rounded-lg font-medium transition-colors duration-200 flex items-center gap-2"
+        >
+          ← Back to Home
+        </button>
+        <h1 className="text-3xl font-bold mb-8">Privacy Policy</h1>
+        <div dangerouslySetInnerHTML={{ __html: privacyPolicy }} />
+      </div>
+    </div>
+  );
+}
+
+// Terms and Conditions Component
+function TermsAndConditions() {
+  const navigate = useNavigate();
+  
+  useEffect(() => {
+    document.title = 'Terms and Conditions - TimeKap';
+  }, []);
+
+  return (
+    <div className="bg-[#0050c6] text-white min-h-screen">
+      <div className="max-w-4xl mx-auto px-4 py-8">
+        <button 
+          onClick={() => navigate('/')}
+          type="button"
+          className="mb-6 bg-white text-[#0050c6] hover:bg-gray-100 px-4 py-2 rounded-lg font-medium transition-colors duration-200 flex items-center gap-2"
+        >
+          ← Back to Home
+        </button>
+        <h1 className="text-3xl font-bold mb-8">Terms and Conditions</h1>
+        <div dangerouslySetInnerHTML={{ __html: termsAndConditions }} />
+      </div>
+    </div>
+  );
+}
+
+// Home Page Component
+function HomePage() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [animatedFeatures, setAnimatedFeatures] = useState(new Set());
   const [heroImageLoaded, setHeroImageLoaded] = useState(false);
   const featureRefs = useRef([]);
   const discordLink = 'https://discord.gg/3CgayCbu';
+  const navigate = useNavigate();
+  
+  useEffect(() => {
+    document.title = 'TimeKap - Kapture Life\'s Best Moments';
+  }, []);
 
-  const [page, setPage] = useState(null);
+  // Social sharing functionality
+  const shareOnSocial = (platform) => {
+    const url = encodeURIComponent('https://timekap.app');
+    const text = encodeURIComponent('Check out TimeKap - Kapture Life\'s Best Moments! 📸✨');
+    
+    const socialUrls = {
+      twitter: `https://twitter.com/intent/tweet?url=${url}&text=${text}`,
+      facebook: `https://www.facebook.com/sharer/sharer.php?u=${url}`,
+      linkedin: `https://www.linkedin.com/sharing/share-offsite/?url=${url}`,
+      whatsapp: `https://wa.me/?text=${text}%20${url}`
+    };
+    
+    if (socialUrls[platform]) {
+      window.open(socialUrls[platform], '_blank', 'noopener,noreferrer');
+    }
+  };
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
@@ -51,42 +123,6 @@ function App() {
     };
   }, []);
 
-  if (page === 'privacy-policy') {
-    return (
-      <div className="bg-[#0050c6] text-white min-h-screen">
-        <div className="max-w-4xl mx-auto px-4 py-8">
-          <button 
-            onClick={() => setPage(null)}
-            type="button"
-            className="mb-6 bg-white text-[#0050c6] hover:bg-gray-100 px-4 py-2 rounded-lg font-medium transition-colors duration-200 flex items-center gap-2"
-          >
-            ← Back to Home
-          </button>
-          <h1 className="text-3xl font-bold mb-8">Privacy Policy</h1>
-          <div dangerouslySetInnerHTML={{ __html: privacyPolicy }} />
-        </div>
-      </div>
-    );
-  }
-
-  if (page === 'terms-and-conditions') {
-    return (
-      <div className="bg-[#0050c6] text-white min-h-screen">
-        <div className="max-w-4xl mx-auto px-4 py-8">
-          <button 
-            onClick={() => setPage(null)}
-            type="button"
-            className="mb-6 bg-white text-[#0050c6] hover:bg-gray-100 px-4 py-2 rounded-lg font-medium transition-colors duration-200 flex items-center gap-2"
-          >
-            ← Back to Home
-          </button>
-          <h1 className="text-3xl font-bold mb-8">Terms and Conditions</h1>
-          <div dangerouslySetInnerHTML={{ __html: termsAndConditions }} />
-        </div>
-      </div>
-    );
-  }
-
   return (
     <div className="App">
       {/* Full Page Loading Spinner */}
@@ -102,7 +138,7 @@ function App() {
         </div>
       )}
       {/* Responsive Navbar */}
-      <header className="bg-[#ffce3e] w-full top-0 z-50">
+      <header className="bg-[#ffce3e] w-full top-0 z-50" role="banner">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 bg-[#ffce3e]">
           <div className="flex justify-between items-center h-32">
             {/* Logo */}
@@ -116,14 +152,14 @@ function App() {
               </a>
             </div>
             {/* Desktop Menu */}
-            <nav className="hidden md:flex space-x-12 items-center">
-              <a href="#home" className="text-[#3a3a3a] hover:text-[#0050c6] px-5 py-4 text-lg font-medium transition-colors duration-200">
+            <nav className="hidden md:flex space-x-12 items-center" role="navigation" aria-label="Main navigation">
+              <a href="#home" className="text-[#3a3a3a] hover:text-[#0050c6] px-5 py-4 text-lg font-medium transition-colors duration-200" aria-label="Go to home section">
                 Home
               </a>
-              <a href="#features" className="text-[#3a3a3a] hover:text-[#0050c6] px-5 py-4 text-lg font-medium transition-colors duration-200">
+              <a href="#features" className="text-[#3a3a3a] hover:text-[#0050c6] px-5 py-4 text-lg font-medium transition-colors duration-200" aria-label="View app features">
                 Features
               </a>
-              <a href={discordLink} className="bg-[#5865F2] text-white hover:bg-[#4752C4] px-5 py-4 rounded-full text-lg font-medium transition-colors duration-200 flex items-center gap-2">
+              <a href={discordLink} className="bg-[#5865F2] text-white hover:bg-[#4752C4] px-5 py-4 rounded-full text-lg font-medium transition-colors duration-200 flex items-center gap-2" target="_blank" rel="noopener noreferrer" aria-label="Join TimeKap Discord community">
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
                   <path d="M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515a.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0a12.64 12.64 0 0 0-.617-1.25a.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 0 0 .031.057a19.9 19.9 0 0 0 5.993 3.03a.078.078 0 0 0 .084-.028a14.09 14.09 0 0 0 1.226-1.994a.076.076 0 0 0-.041-.106a13.107 13.107 0 0 1-1.872-.892a.077.077 0 0 1-.008-.128a10.2 10.2 0 0 0 .372-.292a.074.074 0 0 1 .077-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 0 1 .078.01c.12.098.246.198.373.292a.077.077 0 0 1-.006.127a12.299 12.299 0 0 1-1.873.892a.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028a19.839 19.839 0 0 0 6.002-3.03a.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.03zM8.02 15.33c-1.183 0-2.157-1.085-2.157-2.419c0-1.333.956-2.419 2.157-2.419c1.21 0 2.176 1.096 2.157 2.42c0 1.333-.956 2.418-2.157 2.418zm7.975 0c-1.183 0-2.157-1.085-2.157-2.419c0-1.333.955-2.419 2.157-2.419c1.21 0 2.176 1.096 2.157 2.42c0 1.333-.946 2.418-2.157 2.418z"/>
                 </svg>
@@ -166,7 +202,7 @@ function App() {
 
           {/* Mobile Menu */}
           <div className={`text-center pb-4 rounded-3xl md:hidden transition-all duration-300 ease-in-out ${isMenuOpen ? 'max-h-64 opacity-100' : 'max-h-0 opacity-0'} overflow-hidden`}>
-            <nav className="px-2 py-2 pb-4 space-y-1 bg-white border-t border-gray-200 rounded-3xl">
+            <nav className="px-2 py-2 pb-4 space-y-1 bg-white border-t border-gray-200 rounded-3xl" role="navigation" aria-label="Mobile navigation">
               <a 
                 href="#home" 
                 className="block text-[#3a3a3a] hover:text-[#0050c6] hover:bg-gray-50 px-3 py-2 text-base font-medium rounded-2xl transition-colors duration-200"
@@ -197,33 +233,36 @@ function App() {
       </header>
 
       {/* Main content with top padding to account for fixed navbar */}
-      <div className="bg-[#fdf8f3]" id="home">
-        <div className="relative hero-section min-h-[96vh] sm:min-h-[80vh] pt-4">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-16 ">
+      <main className="bg-[#fdf8f3]" id="home">
+        <section className="relative hero-section min-h-[96vh] sm:min-h-[80vh] pt-4" aria-labelledby="hero-heading">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-16">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
               <div className="text-center lg:text-left lg:pb-16">
-                <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight text-[#f8482e] pb-4 lg:pb-8">
+                <h1 id="hero-heading" className="text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight text-[#f8482e] pb-4 lg:pb-8">
                   Kapture Life&apos;s Best Moments.
                 </h1>
-                <h3 className="text-3xl sm:text-4xl lg:text-5xl font-bold leading-tight text-[#0050c6] pb-4">
+                <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold leading-tight text-[#0050c6] pb-4">
                   and keep them forever.
-                </h3>
+                </h2>
                 <p className="text-lg text-gray-600 mt-4 leading-relaxed">
                   TimeKap helps you stay close to the people you love, even when
-                  life gets busy.
+                  life gets busy. Our memory sharing app brings families and friends together through digital time capsules.
                 </p>
                 <p className="text-lg text-gray-600 mt-4 leading-relaxed">
-                  Build your own memory kapsule together: share random moments,
-                  send surprise notes, do fun challenges, and keep the things that
-                  matter.
+                  Build your own memory capsule together: share random moments,
+                  send surprise notes, do fun challenges, and preserve the memories that
+                  matter most. Experience the joy of connection through shared digital memories.
                 </p>
               </div>
               <div className="flex justify-center lg:justify-end">
                 <img
-                  alt="TimeKap hero"
+                  alt="TimeKap app interface showing family sharing memories in a beautiful digital memory capsule with colorful moments and photos"
                   src="/hero-image.png"
                   className="max-w-full h-auto rounded-lg pt-4 hero-image-continuous-float"
                   onLoad={() => setHeroImageLoaded(true)}
+                  loading="eager"
+                  width="600"
+                  height="400"
                 />
               </div>
             </div>
@@ -240,11 +279,12 @@ function App() {
               </button>
             </div>
           </div>
-        </div>
+        </section>
 
         {/* Features section */}
-        <div className="bg-[#fdf8f3] pb-4 pt-24 md:pt-40 lg:pt-30" id="features">
+        <section className="bg-[#fdf8f3] pb-4 pt-24 md:pt-40 lg:pt-30" id="features" aria-labelledby="features-heading">
           <div className="max-w-[90rem] mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 id="features-heading" className="sr-only">TimeKap Features</h2>
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 xl:grid-cols-4">
               {[
                 { src: "/features/1.png", alt: "Stay Close" },
@@ -256,32 +296,38 @@ function App() {
                   <img
                     ref={el => featureRefs.current[index] = el}
                     src={feature.src}
-                    alt={feature.alt}
+                    alt={`${feature.alt} - ${index === 0 ? 'Connect with family and friends no matter the distance' : index === 1 ? 'Capture and share spontaneous life moments easily' : index === 2 ? 'Create personalized memory stories together' : 'Build lasting digital memory capsules with loved ones'}`}
                     data-index={index}
                     data-delay={index}
                     className={`mx-auto h-100 xl:h-92 w-auto mb-6 p-4 feature-image ${
                       animatedFeatures.has(index) ? 'animate' : ''
                     }`}
+                    loading="lazy"
+                    width="300"
+                    height="300"
                   />
                 </div>
               ))}
             </div>
           </div>
-        </div>
+        </section>
 
         {/* Bottom section */}
-        <div className="relative bg-[#0050c6]">
+        <section className="relative bg-[#0050c6]" aria-labelledby="cta-heading">
           <div className="relative">
             <img 
               src="/squiggle-300h.png"
-              alt="decorative squiggle"
-              className="relative z-20 w-full h-auto md:w-full" 
+              alt="Decorative wave design element transitioning from cream to blue background"
+              className="relative z-20 w-full h-auto md:w-full"
+              loading="lazy"
+              width="1200"
+              height="300"
             />
             
             {/* Content section with blue background */}
             <div className="bg-[#0050c6] relative pb-16 w-full">
               <div className="relative text-center pt-16">
-                <h2 className="text-4xl font-bold text-white mb-20">Be Part of TimeKap</h2>
+                <h2 id="cta-heading" className="text-4xl font-bold text-white mb-20">Be Part of TimeKap</h2>
                 <div className="flex flex-col md:flex-row gap-4 justify-center items-center">
                   <button 
                     type="button" 
@@ -406,17 +452,21 @@ function App() {
               </div>
             </div>
           </div>
-        </div>
+        </section>
+      </main>
                 {/* Footer with Social Links */}
-                <footer className="bg-[#0050c6] text-white pb-4">
+                <footer className="bg-[#0050c6] text-white pb-4" role="contentinfo">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="flex flex-col md:flex-row justify-between items-center">
               {/* Logo and company info */}
               <div className="flex items-center mb-6 lg:mb-0 hidden lg:flex">
                 <img 
-                  alt="TimeKap logo" 
+                  alt="TimeKap logo - circular icon with colorful time capsule design" 
                   src="favicon.png" 
                   className="h-20 w-auto mr-4"
+                  loading="lazy"
+                  width="80"
+                  height="80"
                 />
                 <div>
                   <p className="text-lg font-semibold">TimeKap</p>
@@ -511,21 +561,19 @@ function App() {
                   </a>
                 </div>
                 <div className="flex flex-col sm:flex-row items-center space-y-2 sm:space-y-0 sm:space-x-4 text-sm text-gray-300">
-                  <a 
-                    onClick={() => setPage('privacy-policy')}
-                    type="button"
+                  <Link 
+                    to="/privacy-policy"
                     className="hover:text-[#ffce3e] transition-colors duration-200 cursor-pointer"
                   >
                     Privacy Policy
-                  </a>
+                  </Link>
                   <span className="hidden sm:inline">•</span>
-                  <a 
-                    onClick={() => setPage('terms-and-conditions')}
-                    type="button"
+                  <Link 
+                    to="/terms-and-conditions"
                     className="hover:text-[#ffce3e] transition-colors duration-200 cursor-pointer"
                   >
                     Terms & Conditions
-                  </a>
+                  </Link>
                   <span className="hidden sm:inline">•</span>
                   <p>© 2025 TimeKap™. All rights reserved.</p>
                 </div>
@@ -534,7 +582,45 @@ function App() {
           </div>
         </footer>
       </div>
+  );
+}
+
+// 404 Not Found Component
+function NotFound() {
+  const navigate = useNavigate();
+  
+  useEffect(() => {
+    document.title = 'Page Not Found - TimeKap';
+  }, []);
+
+  return (
+    <div className="bg-[#0050c6] text-white min-h-screen flex items-center justify-center">
+      <div className="text-center px-4">
+        <h1 className="text-6xl font-bold mb-4">404</h1>
+        <h2 className="text-2xl font-semibold mb-4">Page Not Found</h2>
+        <p className="text-lg mb-8">The page you're looking for doesn't exist.</p>
+        <button 
+          onClick={() => navigate('/')}
+          className="bg-[#f8482e] text-white hover:bg-[#ffce3e] hover:text-[#3a3a3a] px-8 py-3 rounded-full text-lg font-semibold transition-colors duration-200"
+        >
+          Go Home
+        </button>
+      </div>
     </div>
+  );
+}
+
+// Main App Component with Router
+function App() {
+  return (
+    <Router>
+      <Routes>
+        <Route path="/" element={<HomePage />} />
+        <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+        <Route path="/terms-and-conditions" element={<TermsAndConditions />} />
+        <Route path="*" element={<NotFound />} />
+      </Routes>
+    </Router>
   );
 }
 
