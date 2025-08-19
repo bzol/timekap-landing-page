@@ -275,13 +275,6 @@ function HomePage() {
                   >
                     Join Waitlist
                   </button>
-                  <button 
-                    type="button" 
-                    className="bg-[#0050c6] text-[#fdf8f3] hover:bg-[#4752C4] px-6 py-3 rounded-full text-lg font-medium transition-colors duration-200 shadow-lg hover:shadow-xl transform hover:-translate-y-1"
-                    onClick={() => shareOnSocial('twitter')}
-                  >
-                    Share on Twitter
-                  </button>
             </div>
           </div>
         </section>
