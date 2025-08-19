@@ -174,7 +174,7 @@
 @media (max-width: 768px) {
     .hero-section {
         min-height: 80vh;
-        padding-bottom: 2rem; /* Adjusted padding for mobile */
+        padding-bottom: 0rem; /* Adjusted padding for mobile */
     }
     
     .hero-section::before {
@@ -208,7 +208,7 @@
 @media (max-width: 480px) {
     .hero-section {
         min-height: 90vh;
-        padding-bottom: 2rem;
+        padding-bottom: 0rem;
     }
 }
 
@@ -216,6 +216,6 @@
 @media (min-width: 769px) and (max-width: 1024px) {
     .hero-section {
         min-height: 70vh;
-        padding-bottom: 1rem;
+        padding-bottom: 0rem;
     }
 }
