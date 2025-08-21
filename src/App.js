@@ -646,7 +646,7 @@ function HomePage() {
               <div className="flex items-center mb-6 lg:mb-0 hidden lg:flex">
                 <img 
                   alt="TimeKap logo - circular icon with colorful time capsule design" 
-                  src="favicon.png" 
+                  src="favicon.svg" 
                   className="h-20 w-auto mr-4"
                   loading="lazy"
                   width="80"
