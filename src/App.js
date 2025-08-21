@@ -511,7 +511,7 @@ function HomePage() {
             {/* Content section with blue background */}
             <div className="bg-[#0050c6] relative pb-16 w-full">
               <div className="relative text-center pt-16">
-                <h2 id="cta-heading" className="text-4xl font-bold text-white mb-20">Be Part of TimeKap</h2>
+                <h2 id="cta-heading" className="text-4xl font-bold text-white mb-20">Be Part of TimeKap.</h2>
                 <div className="flex flex-col md:flex-row gap-4 justify-center items-center">
                   <button 
                     type="button" 
