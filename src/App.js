@@ -891,7 +891,7 @@ function App() {
         <Route path="/" element={<HomePage />} />
         <Route path="/privacy-policy" element={<PrivacyPolicy />} />
         <Route path="/terms-and-conditions" element={<TermsAndConditions />} />
-        <Route path="/invite" element={<Invite />} />
+        <Route path="/invite/:inviteKey?" element={<Invite />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
     </Router>
