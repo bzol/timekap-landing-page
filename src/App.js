@@ -2,7 +2,6 @@ import { useState, useEffect, useRef } from 'react';
 import { BrowserRouter as Router, Routes, Route, useNavigate, Link } from 'react-router-dom';
 import './App.css';
 import { useSearchParams } from 'react-router-dom';
-import { useState, useEffect } from 'react';
 const earlyAccessFormLink = 'https://tally.so/r/m6BZek';
 
 function Invite() {
