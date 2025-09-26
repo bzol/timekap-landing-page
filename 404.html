@@ -1,14 +1,12 @@
 <!DOCTYPE html>
 <html>
 <head>
+  <meta charset="utf-8">
+  <title>TimeKap</title>
   <script>
-    // Check if the current URL path contains 'privacy-policy'
-    if (window.location.pathname.includes('privacy-policy')) {
-      window.location.href = '/privacy-policy';
-    } else {
-      // For all other 404 cases, redirect to home
-      window.location.href = '/';
-    }
+    // Let React Router handle all routes
+    sessionStorage.redirect = location.href;
   </script>
+  <meta http-equiv="refresh" content="0;URL='/'">
 </head>
 </html>
